@@ -5,10 +5,10 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import VerticalNavBarContainer from '../../containers/VerticalNavBarContainer';
 import HorizontalNavBarContainer from '../../containers/HorizontalNavBarContainer';
 import OverviewPageContent from '../OverviewPageContent/OverviewPageContent';
-import TotalStations from '../Pages/TotalStations /TotalStations';
+import TotalStations from '../Pages/TotalStations ';
 import Inverters from '../Pages/Inverters';
 import Batteries from '../Pages/Batteries';
-import StationDetails from '../Pages/TotalStations /StationDetails';
+import StationDetails from '../Pages/TotalStations/Station';
 import { getNearbyRandomNumber } from '../../lib/random';
 import './App.css';
 

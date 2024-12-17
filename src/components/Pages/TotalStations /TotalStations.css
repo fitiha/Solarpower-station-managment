@@ -1,0 +1,22 @@
+/* TotalStations.css */
+.total-stations-page {
+    padding: 20px;
+  }
+  
+  .total-stations-page .segment {
+    margin-bottom: 20px;
+    background-color: #e8f5e9 !important;
+    border: 1px solid #4caf50 !important;
+  }
+  
+  .total-stations-page .header {
+    color: #4caf50 !important;
+  }
+  
+  .total-stations-page .input input {
+    border-color: #4caf50 !important;
+  }
+  
+  .total-stations-page .dropdown .menu {
+    border-color: #4caf50 !important;
+  }
