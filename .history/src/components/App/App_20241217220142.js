@@ -1,15 +1,10 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import { Sidebar } from 'semantic-ui-react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import {Sidebar} from 'semantic-ui-react';
 import VerticalNavBarContainer from '../../containers/VerticalNavBarContainer';
 import HorizontalNavBarContainer from '../../containers/HorizontalNavBarContainer';
 import OverviewPageContent from '../OverviewPageContent/OverviewPageContent';
-import TotalStations from '../Pages/TotalStations /TotalStations';
-import Inverters from '../Pages/Inverters';
-import Batteries from '../Pages/Batteries';
-import StationDetails from '../Pages/TotalStations /StationDetails';
-import { getNearbyRandomNumber } from '../../lib/random';
+import {getNearbyRandomNumber} from '../../lib/random';
 import './App.css';
 
 class App extends Component {
@@ -20,6 +15,13 @@ class App extends Component {
     setInterval(this.updateStoredEnergies.bind(this), 4000);
   }
 
+  /**
+   * Begins the process of updating the input radiance value of each panel in the Redux store, with a random value
+   * near the current value.
+   *
+   * Note: If we were using a real-life solar panel system, we might read these values from a web server (e.g. API).
+   * However, since we are not using a real-life solar panel system, we are generating these values ourselves here.
+   */
   updateInputRadiances() {
     const newInputRadiancesByPanelId = [];
     this.props.panels.forEach((panel) => {
@@ -28,6 +30,13 @@ class App extends Component {
     this.props.updateInputRadiances(newInputRadiancesByPanelId);
   }
 
+  /**
+   * Begins the process of updating the energy stored value of each battery in the Redux store, with a random value
+   * near the current value.
+   *
+   * Note: If we were using a real-life solar panel system, we might read these values from a web server (e.g. API).
+   * However, since we are not using a real-life solar panel system, we are generating these values ourselves here.
+   */
   updateStoredEnergies() {
     const newStoredEnergiesByBatteryId = [];
     this.props.batteries.forEach((battery) => {
@@ -36,6 +45,9 @@ class App extends Component {
     this.props.updateStoredEnergies(newStoredEnergiesByBatteryId);
   }
 
+  /**
+   * Hides the sidebar if the sidebar is visible.
+   */
   hideSidebarIfVisible() {
     if (this.props.sidebarVisible === true) {
       this.props.toggleSidebarVisibility();
@@ -44,21 +56,13 @@ class App extends Component {
 
   render() {
     return (
-      <Router>
-        <Sidebar.Pushable>
-          <VerticalNavBarContainer toggleSidebarVisibility={this.props.toggleSidebarVisibility} />
-          <Sidebar.Pusher onClick={this.hideSidebarIfVisible.bind(this)} dimmed={this.props.sidebarVisible}>
-            <HorizontalNavBarContainer />
-            <Switch>
-              <Route exact path="/" component={OverviewPageContent} />
-              <Route path="/total-stations" component={TotalStations} />
-              <Route path="/inverters" component={Inverters} />
-              <Route path="/batteries" component={Batteries} />
-              <Route path="/station/:stationName" component={StationDetails} />
-            </Switch>
-          </Sidebar.Pusher>
-        </Sidebar.Pushable>
-      </Router>
+      <Sidebar.Pushable>
+        <VerticalNavBarContainer toggleSidebarVisibility={this.props.toggleSidebarVisibility}/>
+        <Sidebar.Pusher onClick={this.hideSidebarIfVisible.bind(this)} dimmed={this.props.sidebarVisible}>
+          <HorizontalNavBarContainer/>
+          <OverviewPageContent/>
+        </Sidebar.Pusher>
+      </Sidebar.Pushable>
     );
   }
 }

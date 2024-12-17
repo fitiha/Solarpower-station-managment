@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Container, Dropdown, Icon, Menu } from 'semantic-ui-react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './HorizontalNavBar.css';
 
@@ -39,21 +39,13 @@ class HorizontalNavBar extends Component {
           <Menu.Item as='a' icon='sidebar' onClick={this.props.toggleSidebar}
                      className='hidden-on-small-monitor hidden-on-large-monitor'/>
 
-          <Menu.Item as={NavLink} exact to="/" header>
+          <Menu.Item as={Link} to="/" header>
             <Icon name='sun' color='yellow'/> SolarNet Ethiopia
           </Menu.Item>
-          <Menu.Item as={NavLink} exact to="/" className='hidden-on-tablet hidden-on-phone'>
-            Overview
-          </Menu.Item>
-          <Menu.Item as={NavLink} to="/total-stations" className='hidden-on-tablet hidden-on-phone'>
-            Total Stations
-          </Menu.Item>
-          <Menu.Item as={NavLink} to="/inverters" className='hidden-on-tablet hidden-on-phone'>
-            Inverters
-          </Menu.Item>
-          <Menu.Item as={NavLink} to="/batteries" className='hidden-on-tablet hidden-on-phone'>
-            Batteries
-          </Menu.Item>
+          <Menu.Item as={Link} to="/" className='hidden-on-tablet hidden-on-phone' active>Overview</Menu.Item>
+          <Menu.Item as={Link} to="/total-stations" className='hidden-on-tablet hidden-on-phone' activ>Total Stations</Menu.Item>
+          <Menu.Item as={Link} to="/inverters" className='hidden-on-tablet hidden-on-phone'>Inverters</Menu.Item>
+          <Menu.Item as={Link} to="/batteries" className='hidden-on-tablet hidden-on-phone'>Batteries</Menu.Item>
 
           <Menu.Menu position='right' className='hidden-on-tablet hidden-on-phone'>
             <Dropdown item icon='dropdown' text={this.state.userName}>

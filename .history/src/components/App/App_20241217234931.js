@@ -5,10 +5,9 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import VerticalNavBarContainer from '../../containers/VerticalNavBarContainer';
 import HorizontalNavBarContainer from '../../containers/HorizontalNavBarContainer';
 import OverviewPageContent from '../OverviewPageContent/OverviewPageContent';
-import TotalStations from '../Pages/TotalStations /TotalStations';
-import Inverters from '../Pages/Inverters';
-import Batteries from '../Pages/Batteries';
-import StationDetails from '../Pages/TotalStations /StationDetails';
+import TotalStations from "./"
+// import Inverters from '../Inverters/Inverters';
+// import Batteries from '../Batteries/Batteries';
 import { getNearbyRandomNumber } from '../../lib/random';
 import './App.css';
 
@@ -52,9 +51,8 @@ class App extends Component {
             <Switch>
               <Route exact path="/" component={OverviewPageContent} />
               <Route path="/total-stations" component={TotalStations} />
-              <Route path="/inverters" component={Inverters} />
-              <Route path="/batteries" component={Batteries} />
-              <Route path="/station/:stationName" component={StationDetails} />
+              {/* <Route path="/inverters" component={Inverters} />
+              <Route path="/batteries" component={Batteries} /> */}
             </Switch>
           </Sidebar.Pusher>
         </Sidebar.Pushable>

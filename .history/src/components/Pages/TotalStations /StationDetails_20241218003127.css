@@ -1,0 +1,18 @@
+/* StationDetails.css */
+.station-details-page {
+    padding: 20px;
+  }
+  
+  .station-details-page .segment {
+    background-color: #e8f5e9 !important;
+    border: 1px solid #4caf50 !important;
+  }
+  
+  .station-details-page .header {
+    color: #4caf50 !important;
+  }
+  
+  .station-details-page .button {
+    background-color: #4caf50 !important;
+    color: white !important;
+  }
