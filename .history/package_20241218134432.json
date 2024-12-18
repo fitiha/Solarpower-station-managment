@@ -1,8 +1,8 @@
 {
-  "name": "solarnetethiopia",
+  "name": "solar-net-Ethiopia",
   "version": "0.2.1",
   "private": true,
-  "homepage": "https://ethiosolarnet.vercel.app/",
+  "homepage": "https://gitname.github.io/solar-ui",
   "dependencies": {
     "chart.js": "^2.6.0",
     "cors": "^2.8.5",
